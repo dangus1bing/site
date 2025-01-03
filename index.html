@@ -42,7 +42,7 @@
             const dateStr = `${day} ${month} ${year}`;
             const timeStr = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 
-            document.getElementById('clock').innerHTML = `${dateStr}<br>${timeStr}`;
+            document.getElementById('clock').innerHTML = `${dateStr} ${timeStr}`;
         }
 
         setInterval(updateClock, 1); // Update clock every millisecond
