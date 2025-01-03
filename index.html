@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dangus</title>
+    <title>Real-Time Clock</title>
     <style>
         body {
             margin: 0;
             font-family: Calibri, sans-serif;
+            color: black;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100vh;
+            background-color: white;
         }
         #clock {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0);
-            color: black;
-            font-size: 1.5em;
-            border-radius: 5px;
+            margin: 10px;
+            font-size: 20px;
             font-weight: bold;
         }
     </style>
@@ -29,13 +29,24 @@
         function updateClock() {
             const clockElement = document.getElementById('clock');
             const now = new Date();
-            const formattedTime = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
-            clockElement.textContent = formattedTime;
+
+            const day = now.getDate();
+            const month = now.getMonth() + 1; // Months are zero-indexed
+            const year = now.getFullYear();
+
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+
+            const dateString = `${day} ${month} ${year}`;
+            const timeString = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+
+            clockElement.textContent = `${dateString} \n ${timeString}`;
         }
 
-        setInterval(updateClock, 1000);
-        updateClock(); // Initialize the clock immediately
+        setInterval(updateClock, 10); // Update clock every 10 milliseconds
+        updateClock(); // Initial call to display clock immediately
     </script>
 </body>
 </html>
-
