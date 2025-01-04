@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             height: 100vh;
@@ -23,10 +24,19 @@
             font-size: 1rem;
             color: black;
         }
+
+        .greeting {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            font-size: 1rem;
+            color: black;
+        }
     </style>
 </head>
 <body>
     <div class="clock" id="clock"></div>
+    <div class="greeting" id="greeting"></div>
 
     <script>
         function updateClock() {
@@ -43,9 +53,25 @@
             const timeStr = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 
             document.getElementById('clock').innerHTML = `${dateStr} ${timeStr}`;
+
+            // Update greeting based on the hour of the day
+            const greetingElement = document.getElementById('greeting');
+            let greetingMessage = '';
+
+            if (hours >= 5 && hours < 12) {
+                greetingMessage = 'Good morning';
+            } else if (hours >= 12 && hours < 17) {
+                greetingMessage = 'Good afternoon';
+            } else if (hours >= 17 && hours < 21) {
+                greetingMessage = 'Good evening';
+            } else {
+                greetingMessage = 'Good night';
+            }
+
+            greetingElement.innerHTML = greetingMessage;
         }
 
-        setInterval(updateClock, 1); // Update clock every millisecond
+        setInterval(updateClock, 1000); // Update clock every second
         updateClock(); // Initialize clock immediately
     </script>
 </body>
