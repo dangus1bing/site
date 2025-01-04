@@ -14,7 +14,7 @@
             align-items: center;
             height: 100vh;
             background-color: white;
-            font-family: 'Serif';
+            font-family: 'Sans-Serif';
         }
 
         .clock {
@@ -35,7 +35,7 @@
 
         .tracklist {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: black;
         }
 
@@ -59,15 +59,15 @@
     <div class="greeting" id="greeting"></div>
 
     <div class="tracklist">
-        <h1>LP</h1>
+        <li>LP1 (2025)</li>
         <ul>
-            <li>1. ???</li>
-            <li>2. ???</li>
-            <li>3. ???</li>
-            <li>4. ???</li>
-            <li>5. ???</li>
-            <li>6. ???</li>
-            <li>7. ???</li>
+            <li>track one</li>
+            <li>track two</li>
+            <li>track three</li>
+            <li>track four</li>
+            <li>track five</li>
+            <li>track six</li>
+            <li>track seven</li>
         </ul>
     </div>
 
@@ -92,13 +92,13 @@
             let greetingMessage = '';
 
             if (hours >= 5 && hours < 12) {
-                greetingMessage = 'GOOD MORNING';
+                greetingMessage = 'good morning';
             } else if (hours >= 12 && hours < 17) {
-                greetingMessage = 'GOOD AFTERNOON';
+                greetingMessage = 'good afternoon';
             } else if (hours >= 17 && hours < 21) {
-                greetingMessage = 'GOOD EVENING';
+                greetingMessage = 'good evening';
             } else {
-                greetingMessage = 'GOOD NIGHT';
+                greetingMessage = 'good night';
             }
 
             greetingElement.innerHTML = greetingMessage;
